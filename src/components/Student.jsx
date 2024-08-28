@@ -1,7 +1,6 @@
-import StudentDetail from './StudentDetail';
+import React, { useState, } from 'react';
+import StudentDetail from './studentDetail';
 import StudentList from './StudentList'
-import { useState, useEffect } from 'react';
-import StudentContext from '../context/StudentContext';
 
 function Student() {
     const users = [
@@ -38,9 +37,6 @@ function Student() {
     ];
    const [selectedUser, setSelectedUser] = useState(users[0]);
 
-   useEffect(() => {
-      document.title = selectedUser.name;
-   },[])
     const showUserDetails = (user) => {
         setSelectedUser(user);
     }
@@ -52,9 +48,7 @@ function Student() {
             <StudentList users={users} showUserDetails={showUserDetails}></StudentList>
             </div>
             <div className='col-md-6'>
-            <StudentContext.Provider value={selectedUser}>
-                <StudentDetail  ></StudentDetail>
-            </StudentContext.Provider>
+                <StudentDetail selectedUser={selectedUser}></StudentDetail>
             </div>
             </div>
     </div>
