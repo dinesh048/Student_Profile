@@ -9,10 +9,10 @@ function StudentHobbies(){
                     </div>
                     <div className='card-body'>
                         <ul>
-                            {student.hobbies.map((hobby, index) => (
+                            {student?.hobbies?.map((hobby, index) => (
                                 <li key={index}>{hobby}</li>
          
-        ))}
+                            ))}
                         </ul>
                     </div>
               </div>

@@ -11,6 +11,7 @@ const usersList = [
     location: 'Kathmandu, Nepal',
     hobbies: ['Playing Guitar', 'Coding', 'Reading Books'],
     bio: "Hi, I'm John, a passionate computer science student with a love for coding and technology. I'm always eager to learn new things and take on challenging projects. In my free time, I enjoy playing guitar, reading, and experimenting with new programming languages.",
+    profilePic: 'https://via.placeholder.com/150',
   },
   {
     id: 2,
@@ -46,8 +47,14 @@ function Student() {
    useEffect(() => {
       const filteredUsers = usersList.filter(
         user => user.name.toLowerCase().includes(search.toLowerCase()));
-      setUsers(filteredUsers);
-      setSelectedUser(filteredUsers[0]);
+      if(filteredUsers.length> 0){
+        setUsers(filteredUsers);
+        setSelectedUser(filteredUsers[0]);
+      }else{
+        setUsers([]);
+        setSelectedUser({});
+      }
+   
    },[search]);
 
     const showUserDetails = (user) => {
