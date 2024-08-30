@@ -60,6 +60,21 @@ function Student() {
   const showUserDetails = (user) => {
     setSelectedUser(user);
   };
+  const addUser = (e) => {
+    e.preventDefault();
+
+    const userData =  new FormData(e.target);
+    console.log('userData',userData);
+    console.log(userData.get('name'));
+    let newUser = {
+      name: userData.get('name'),
+      email: userData.get('email'),
+      phone: userData.get('phone')
+    }
+    usersList.push(newUser);
+    setUsers(usersList);
+    e.target.reset();
+  }
   
 
 
@@ -72,6 +87,23 @@ function Student() {
                     <h4> Add Student</h4>
                 </div>
                 <div className='card-body'>
+                  <form onSubmit={addUser}>
+                      <div  className='row'>
+                        <div className="col">
+                          <label> Name</label>
+                          <input type="text" className="form-control" name="name" placeholder="Name"/>
+                        </div>
+                        <div className="col">
+                          <label> Email</label>
+                          <input type="text" className="form-control" name="email" placeholder="Email"/>
+                        </div>
+                        <div className="col">
+                          <label> Phone Number</label>
+                          <input type="text" className="form-control" placeholder="Phone Number"/>
+                        </div>
+                        </div>
+                        <button type="submit" className="btn btn-primary mt-3">Add Student</button>
+                  </form>
               </div>
           </div>
         </div>
