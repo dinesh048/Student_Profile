@@ -4,11 +4,11 @@ function StudentInfo(){
     const student = useContext(StudentContext)
     return(
     <div className="card">
-                    <div className='card-header'>
-                        <h4>Student Details</h4>
-                    </div>
-                    <div className='card-body'></div>
-     <div className='text-center'>
+        <div className='card-header'>
+            <h4>Student Details</h4>
+        </div>
+        <div className='card-body'></div>
+         <div className='text-center'>
             <img src={student.profilePic} alt={student.name} className='img-fluid rounded-circle' style={{width: '150px'}} />
         </div>
         <h3 className='text-center'>{student.name}</h3>
