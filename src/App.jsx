@@ -5,7 +5,7 @@ import Student from "./components/Student";
 function App() {
   return (
     <div className="container-fluid">
-        <Student />
+      <Student />
     </div>
   );
 }

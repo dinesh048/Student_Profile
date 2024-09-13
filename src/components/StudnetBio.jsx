@@ -1,16 +1,13 @@
-import { useContext } from "react"
-import StudentContext from "../context/StudentContext"
-function StudentBio(){
-    const student = useContext(StudentContext)
+function StudentBio({student}){
     return(
-        <div className="card mt-5">
-                    <div className='card-header'>
-                        <h4>Student Bio</h4>
-                    </div>
-                    <div className='card-body'>
-                        <p>{student.bio}</p>
-                    </div>
-              </div>
+      <div className="card mt-5">
+        <div className='card-header'>
+          <h4>Student Bio</h4>
+        </div>
+        <div className='card-body'>
+          <p>{student.bio}</p>
+        </div>
+      </div>
     )
 }
 

@@ -1,42 +1,55 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { 
-   createBrowserRouter,
-  RouterProvider
-} from 'react-router-dom'
-import Student from './components/Student.jsx'
-import StudentList from './components/StudentList.jsx'
-import DefaultLayout from './Layout/Defaultlayout.jsx'
+import * as ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Student from './components/Student.jsx';
+import Layout from './components/Layout.jsx';
+import AddStudent from './components/AddStudent.jsx';
+import StudentDetail from './components/StudentDetail.jsx';
 
 
 
-
-const Router = createBrowserRouter([
-    {
-       path: '/',
-       element: <DefaultLayout />,
-       children: [
-        {
-          path: '/about',
-          element: <h1>About Us</h1>
-        },
-        {
-          path: '/',
-          element: <h1>Home  </h1>
-        },
-        {
-          path: '/students',
-          element: <StudentList />
-        }
-
-       ]
+const router = createBrowserRouter([
+  { 
+    path: "/", 
+    element:<Layout/>,
+    children: [
+      {
+        path:'/',
+        element:<h1>home</h1>
+      },
+      {
+        path:'/students',
+        element:<Student/>
+      },
+      {
+        path:'/student/:id',
+        element:<StudentDetail/>
+      },
+      {
+        path:'/student/add',
+        element: <AddStudent/>
+      },
+      {
+        path: "/about",
+        element: <div>About</div>,
+      },
+      {
+        path: "/contact",
+        element: <div>Contact</div>,
       }
-])
 
-createRoot(document.getElementById('root')).render(
+    ]
+  },
+ 
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={Router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 )

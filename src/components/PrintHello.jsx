@@ -16,8 +16,8 @@ function PrintHello( {name,age,bio}) {
   };
   return (
     <div style={studentCard}>
-        <h3 onClick={toogleShowDetails}>{name} ({age})</h3>
-        {showDetails?(<p>{bio}</p>):""}
+      <h3 onClick={toogleShowDetails}>{name} ({age})</h3>
+      {showDetails?(<p>{bio}</p>):""}
     </div>
   );
 }

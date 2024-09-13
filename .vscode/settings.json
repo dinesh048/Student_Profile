@@ -8,5 +8,6 @@
         "typescript",
         "typescriptreact"
     ],
-    "eslint.alwaysShowStatus": true
+    "eslint.alwaysShowStatus": true,
+    "editor.fontSize": 25
 }
